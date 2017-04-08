@@ -40,7 +40,7 @@ public class Game implements GameInterface {
 		map = new char[l][c];
 	}
 
-	public void insertLine(String line, int l, int c) {
+	public void insertLine(String line, int l, int c) {//acabar
 		for (int i = 0; i < c; i++) {
 			map[l][i] = line.charAt(i);
 			switch(line.charAt(i)){

@@ -33,5 +33,26 @@ public abstract class Stormtroopers implements StormtrooperInterface {
 	public void setyPos(int yPos) {
 		this.yPos = yPos;
 	}
+	
+	public void move(){
+		if(moves[moveCounter].equals("left")){
+			xPos--;
+			moveCounter++;
+		}
+		if(moves[moveCounter].equals("right")){
+			xPos++;
+			moveCounter++;
+		}
+		if(moves[moveCounter].equals("up")){
+			yPos++;
+			moveCounter++;
+		}
+		if(moves[moveCounter].equals("down")){
+			yPos--;
+			moveCounter++;
+		}
+		if(moveCounter == 4)
+			moveCounter = 0;
+	}
 
 }
