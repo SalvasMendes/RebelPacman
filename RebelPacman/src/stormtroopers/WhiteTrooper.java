@@ -1,6 +1,6 @@
 package stormtroopers;
 
-public class WhiteTrooper extends Stormtroopers{
+public class WhiteTrooper extends Stormtroopers {
 
 	public WhiteTrooper(int number) {
 		name = "ST-W-" + number;
@@ -12,5 +12,5 @@ public class WhiteTrooper extends Stormtroopers{
 		moveCounter = 0;
 		active = true;
 	}
-	
+
 }

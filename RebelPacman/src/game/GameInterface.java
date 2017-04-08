@@ -15,5 +15,11 @@ public interface GameInterface {
 	void createMatrix(int l, int c);
 
 	boolean emptyMap();
+	
+	int getLines();
+	
+	int getColumns();
+	
+	int getEmptySpaces();
 
 }

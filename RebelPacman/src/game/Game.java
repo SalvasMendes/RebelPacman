@@ -2,7 +2,7 @@ package game;
 
 import java.util.Scanner;
 import rebels.*;
-import stormtroopers.OrangeTrooper;
+import stormtroopers.*;
 
 public class Game implements GameInterface {
 
@@ -11,15 +11,17 @@ public class Game implements GameInterface {
 	private char[][] map;
 	private int rebelCounter;
 	private int emptySpaces;
-	private boolean emptyMap;
 	private int trooperCounter;
+	private int lines;
+	private int columns;
 
 	public Game() {
 		heroCounter = 0;
 		rebelCounter = 0;
 		emptySpaces = 0;
 		trooperCounter = 0;
-		emptyMap = true;
+		lines = -1;
+		columns = -1;
 	}
 
 	public void moveHeros(String direction) {// podemos usar o char at tb
@@ -38,14 +40,28 @@ public class Game implements GameInterface {
 
 	public void createMatrix(int l, int c) {
 		map = new char[l][c];
+		lines = l;
+		columns = c;
 	}
 
-	public void insertLine(String line, int l, int c) {//acabar
+	public void insertLine(String line, int l, int c) {// acabar
 		for (int i = 0; i < c; i++) {
 			map[l][i] = line.charAt(i);
-			switch(line.charAt(i)){
-			case ' ': emptySpaces++; break;
-			case 'O': new OrangeTrooper(++trooperCounter);
+			switch (line.charAt(i)) {
+			case ' ':
+				emptySpaces++;
+				break;
+			case 'O':
+				new OrangeTrooper(++trooperCounter);
+				break;
+			case 'B':
+				new BlackTrooper(++trooperCounter);
+				break;
+			case 'W':
+				new WhiteTrooper(++trooperCounter);
+				break;
+			default:
+				break;
 			}
 		}
 	}
@@ -64,7 +80,19 @@ public class Game implements GameInterface {
 	}
 
 	public boolean emptyMap() {
-		return emptyMap;
+		return (lines == -1);
+	}
+
+	public int getLines() {
+		return lines;
+	}
+
+	public int getColumns() {
+		return columns;
+	}
+	
+	public int getEmptySpaces(){
+		return emptySpaces;
 	}
 
 }
