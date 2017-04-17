@@ -21,5 +21,9 @@ public interface GameInterface {
 	int getColumns();
 	
 	int getEmptySpaces();
+	
+	int getTrooperCounter();
+	
+	int getRebelCounter();
 
 }

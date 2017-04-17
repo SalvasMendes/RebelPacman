@@ -27,13 +27,23 @@ public class Main {
 			System.out.println(line);
 		}
 	}
+	
+	private static void createRebel(Scanner in, GameInterface game){
+		
+	}
 
+	private static void moveRebel(Scanner in, GameInterface game){
+		for(int i = 0; i<game.getRebelCounter(); i++){
+			
+		}
+	}
+	
 	public static void main(String[] args) {
 		GameInterface game = new Game();
 		Scanner in = new Scanner(System.in);
 		createMap(in, game);
 		printMap(game);
-		System.out.println(game.getEmptySpaces());
+		System.out.println(game.getTrooperCounter());
 	}
 
 }

@@ -2,7 +2,7 @@ package stormtroopers;
 
 public abstract class Stormtroopers implements StormtrooperInterface {
 
-	protected static final int SIZE = 3;
+	protected static final int SIZE = 4;
 	protected int moveCounter;
 	protected String[] moves;
 	protected boolean active;
