@@ -1,4 +1,5 @@
 package game;
+import map.*;
 
 public interface GameInterface {
 
@@ -6,7 +7,7 @@ public interface GameInterface {
 
 	// void addStormtrooper();
 
-	char[][] readMap();
+	mapSpotInterface[][] readMap();
 
 	void moveHeros(String direction);
 

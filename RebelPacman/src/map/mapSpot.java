@@ -11,17 +11,19 @@ public class mapSpot implements mapSpotInterface{
 	private HeroInterface hero;
 	private boolean hasTrooper;
 	private StormtrooperInterface trooper;
-	
-	
-	public mapSpot(boolean weapon, boolean wall, boolean hasTrooper){
+	private char mapRepresentation;
+
+	public mapSpot(boolean weapon, boolean wall, boolean hasTrooper, char mapRepresentation){
 		this.weapon = weapon;
 		this.hasTrooper = hasTrooper;
+		this.mapRepresentation = mapRepresentation;
 	}
 	
-	public mapSpot(boolean weapon, boolean wall, boolean hasTrooper, StormtrooperInterface trooper){
+	public mapSpot(boolean weapon, boolean wall, boolean hasTrooper, StormtrooperInterface trooper, char mapRepresentation){
 		this.weapon = weapon;
 		this.hasTrooper = hasTrooper;
 		this.trooper = trooper;
+		this.mapRepresentation = mapRepresentation;
 	}
 	
 	public boolean isEmpty(){
@@ -47,6 +49,9 @@ public class mapSpot implements mapSpotInterface{
 	public void removeHero(){
 		hero = null;
 	}
-	
+
+	public char getMapRepresentation() {
+		return mapRepresentation;
+	}
 	
 }

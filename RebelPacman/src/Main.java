@@ -2,6 +2,7 @@ import java.util.Scanner;
 import game.*;
 import rebels.*;
 import stormtroopers.*;
+import map.*;
 
 public class Main {
 
@@ -18,11 +19,11 @@ public class Main {
 
 	private static void printMap(GameInterface game) {
 		String line;
-		char [][] mapa = game.readMap();
+		mapSpotInterface[][] mapa = game.readMap();
 		for(int i = 0; i<game.getLines();i++){
 			line = "";
 			for(int ii = 0; ii<game.getColumns(); ii++){
-				line = line + mapa[i][ii];
+				line = line + mapa[i][ii].getMapRepresentation();
 			}
 			System.out.println(line);
 		}
@@ -40,8 +41,10 @@ public class Main {
 	
 	public static void main(String[] args) {
 		GameInterface game = new Game();
+		
 		Scanner in = new Scanner(System.in);
 		createMap(in, game);
+		System.out.println(game.getEmptySpaces());
 		printMap(game);
 		System.out.println(game.getTrooperCounter());
 	}

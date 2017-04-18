@@ -15,4 +15,6 @@ public interface mapSpotInterface {
 	
 	void removeHero();
 	
+	char getMapRepresentation();
+	
 }

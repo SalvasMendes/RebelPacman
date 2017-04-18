@@ -6,6 +6,8 @@ import stormtroopers.*;
 import map.*;
 
 public class Game implements GameInterface {
+	
+	private static final int SIZE = 5;
 
 	private int heroCounter;
 	private HeroInterface[] heros;
@@ -19,6 +21,7 @@ public class Game implements GameInterface {
 
 	public Game() {
 		heroCounter = 0;
+		stws = new StormtrooperInterface[SIZE];
 		rebelCounter = 0;
 		emptySpaces = 0;
 		trooperCounter = 0;
@@ -35,7 +38,7 @@ public class Game implements GameInterface {
 			heros[i].move(move);
 			int cc = heros[i].getxPos();
 			int ll = heros[i].getyPos();
-			updateMap(c, l, cc, ll, heros[i]);
+			//updateMap(c, l, cc, ll, heros[i]);
 		}
 		str.close();
 	}
@@ -48,27 +51,28 @@ public class Game implements GameInterface {
 
 	public void insertLine(String line, int l, int c) {// acabar
 		for (int i = 0; i < c; i++) {
-			switch (line.charAt(i)) {
+			switch (line.toUpperCase().charAt(i)) {
 			case ' ':
-				map[l][i] = new mapSpot(false, false, false);
+				map[l][i] = new mapSpot(false, false, false, ' ');
 				emptySpaces++;
 				break;
 			case '.':
-				map[l][i] = new mapSpot(true,false, false);
+				map[l][i] = new mapSpot(true,false, false, '.');
+				break;
 			case 'O':
 				stws[trooperCounter] = new OrangeTrooper(trooperCounter);
-				map[l][i] = new mapSpot(false, false, true, stws[trooperCounter++]);
+				map[l][i] = new mapSpot(false, false, true, stws[trooperCounter++], 'O');
 				break;
 			case 'B':
 				stws[trooperCounter] = new BlackTrooper(trooperCounter);
-				map[l][i] = new mapSpot(false, false, true, stws[trooperCounter++]);
+				map[l][i] = new mapSpot(false, false, true, stws[trooperCounter++], 'B');
 				break;
 			case 'W':
 				stws[trooperCounter] = new WhiteTrooper(trooperCounter);
-				map[l][i] = new mapSpot(false, false, true, stws[trooperCounter++]);
+				map[l][i] = new mapSpot(false, false, true, stws[trooperCounter++], 'W');
 				break;
 			case '#':
-				map[l][i] = new mapSpot(false, true, false);
+				map[l][i] = new mapSpot(false, true, false, '#');
 				break;
 			default:
 				break;
@@ -88,7 +92,7 @@ public class Game implements GameInterface {
 
 	}
 
-	public char[][] readMap() {
+	public mapSpotInterface[][] readMap() {
 		return map;
 	}
 
@@ -116,4 +120,6 @@ public class Game implements GameInterface {
 		return rebelCounter;
 	}
 
+	//insert resize
+	
 }
